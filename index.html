@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Northern Ireland Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 800px;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([54.597, -5.930], 12);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+    }).addTo(map);
+
+    <!-- Markers -->
+    var marker = L.marker([54.576684728069914, -6.006066915459072]).addTo(map);
+    marker.bindPopup("<p>Murder of Kevin Conway <br> 9 January 2024</p>").openPopup();
+
+
+    var marker = L.marker([54.58052911863184, -5.997396593369065]).addTo(map);
+    marker.bindPopup("<p>Murder of Jim Donegan <br> 4 December 2018</p>").openPopup();
+
+    var marker = L.marker([54.57239205493844, -6.011290085723552]).addTo(map);
+    marker.bindPopup("<p>Murder of Kieran Wylie <br> 17 May 2020</p>").openPopup();
+
+    var marker = L.marker([54.57362069520529, -6.022074357656855]).addTo(map);
+    marker.bindPopup("<p>Murder of Sean Fox <br> 2 October 2022</p>").openPopup();
+
+    var marker = L.marker([54.58736018814676, -5.962307071165115]).addTo(map);
+    marker.bindPopup("<p>Murder of Warren Crossan <br> 27 June 2020</p>").openPopup();
+
+    var marker = L.marker([54.5878431193647, -5.965012684660458]).addTo(map);
+    marker.bindPopup("<p>Murder of Mark Hall <br> 18 December 2021</p>").openPopup();
+  </script>
+</body>
+</html>
