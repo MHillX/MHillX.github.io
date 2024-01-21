@@ -36,7 +36,9 @@
     var northernIrelandPolygon = L.polygon(northernIrelandCoords, {color: 'orange'}).addTo(map);
     var popupContent = '<strong>Amber Weather Warning:</strong><br>' + 'Wind warning from 6 PM on Sunday 21st till 6 AM on Monday 22nd. ' + "<img src='https://pbs.twimg.com/media/GEXQGSmXUAA96D4?format=jpg&name=medium' alt='Updated amber warning' width='300' height='300'>" + "<a href='https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#?id=61290587-d215-4b6f-8d9b-cf130d9862d7&date=2024-01-21'>Met office</a>";
     northernIrelandPolygon.bindPopup(popupContent).openPopup();
-
+    
+    var marker = L.marker([54.615607041470845, -5.8749644]).addTo(map);
+    marker.bindPopup("<strong>Cancellations by Belfast City Airport</strong><br>" + "<a href='https://www.belfastcityairport.com/Departures'>Departures list</a>").openPopup();
   </script>
 </body>
 </html>
