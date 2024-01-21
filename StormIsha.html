@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorm Isha Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 800px;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([54.597, -5.930], 12);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+    }).addTo(map);
+
+    <!-- Markers -->
+    var marker = L.marker([54.661791811737004, -6.21733202642323]).addTo(map);
+    marker.bindPopup("<p>Warning by Belfast International Airport</p>" + "<a href='https://twitter.com/belfastairport/status/1749069088821751953'>Tweet</a>").openPopup();
+
+    var marker = L.marker([54.59292462843946, -5.834325806725244]).addTo(map);
+    marker.bindPopup("<strong>Power outage: </strong><br>" + "Event Number: 5738844 <br> Estimated Restoration Time: 6:00 PM, 21 Jan").openPopup();
+
+    var northernIrelandCoords = [[55.2280556094205, -6.153632522434836], [54.67501958678494, -5.5856501203635975], [54.02477809950397, -6.057298329790721], [54.421448706833424, -7.027045496804948], [54.46577956438319, -8.17763204573132], [55.06808102837585, -7.258052369321328]];
+    var northernIrelandPolygon = L.polygon(northernIrelandCoords, {color: 'orange'}).addTo(map);
+    var popupContent = '<strong>Amber Weather Warning:</strong><br>' + 'Wind warning from 6 PM on Sunday 21st till 6 AM on Monday 22nd. ' + "<a href='https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#?id=61290587-d215-4b6f-8d9b-cf130d9862d7&date=2024-01-21'>Met office</a>";
+    northernIrelandPolygon.bindPopup(popupContent).openPopup();
+
+  </script>
+</body>
+</html>
